@@ -7,7 +7,7 @@ body {
 }
 
 main {
-  max-width: 300px;
+  max-width: 500px;
   margin: 20px auto;
 }
 
@@ -43,13 +43,19 @@ div.task {
   margin-top: 5px;
   display: flex;
   transition: opacity 0.3s linear;
+  align-items: center;
 }
+
+
+
 
 div.task.done {
   opacity: 0.3;
   text-decoration: line-through;
 }
-
+div.task-name, div.task form{
+  flex-grow: 1;
+}
 div.task span {
   position: relative;
 }
@@ -74,7 +80,34 @@ div.task svg {
   margin-right: 6px;
   fill: #61DAFB;
 }
+div.checkbox {
+  display: flex;
+  align-items: center;
+}
 
-h1 {
+
+
+h1, h2{
   text-align: center ;
+}
+
+button.trash {
+  background: none;
+  border: none;
+  display: flex;
+  cursor: pointer;
+
+}
+
+button.trash svg {
+  fill: #aaa;
+  height: 14px;
+}
+
+
+div.task input {
+  border: 2px solid #555;
+  border-radius: 5px;
+  padding: 2px 4px;
+
 }

@@ -30,6 +30,20 @@ function App() {
     });
   }
 
+  function removeTask(indexToRemove) {
+    setTasks((prev) =>
+      prev.filter((taskObject, index) => index !== indexToRemove)
+    );
+  }
+
+  function renameTask(index, newName) {
+    setTasks((prev) => {
+      const newTasks = [...prev];
+      newTasks[index].name = newName;
+      return newTasks;
+    });
+  }
+
   const doneTasks = tasks.filter((task) => task.done).length;
   const totalTasks = tasks.length;
 
@@ -52,7 +66,9 @@ function App() {
       {tasks.map((task, index) => (
         <Task
           {...task}
+          onDelete={() => removeTask(index)}
           onToggle={(done) => updateTaskDone(index, done)}
+          onRename={(newName) => renameTask(index, newName)}
           key={index}
         />
       ))}
