@@ -30,8 +30,24 @@ function App() {
     });
   }
 
+  const doneTasks = tasks.filter((task) => task.done).length;
+  const totalTasks = tasks.length;
+
+  function getMessage() {
+    const percentage = (doneTasks / totalTasks) * 100;
+    if (percentage === 100) return "You did well! 🎉";
+    if (percentage >= 75) return "You're almost there! 💪";
+    if (percentage >= 50) return "You're half way there! 🏃";
+    if (percentage >= 25) return "You're doing great! 🚀";
+    if (percentage >= 0) return "You can do it! 🙌 ";
+  }
+
   return (
     <main>
+      <h1>
+        {doneTasks} / {totalTasks} Complete
+      </h1>
+      <h2>{getMessage()}</h2>
       <TaskForm onAdd={addTask} />
       {tasks.map((task, index) => (
         <Task

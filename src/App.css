@@ -74,3 +74,7 @@ div.task svg {
   margin-right: 6px;
   fill: #61DAFB;
 }
+
+h1 {
+  text-align: center ;
+}
