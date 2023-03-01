@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: rgba(1, 18, 26, 0.788);
+  color: #ddd;
+}
+
+main {
+  max-width: 300px;
+  margin: 20px auto;
+}
+
+form {
+  border: 3px solid #30313D;
+  border-radius: 10px;
+  padding: 5px;
+  display: flex;
+  
+}
+
+
+form input[type="text"] {
+  background: none;
+ border: 0;
+  padding: 0 8px;
+  color: #fff;
+  display: block;
+  width: 100%;
+}
+form button {
+  background-color: #61DAFB;
+  border: 0;
+  border-radius: 6px;
+
+  cursor: pointer;
+}
+
+div.task {
+  background-color: #20212D;
+  border-radius: 10px;
+  padding: 5px 9px;
+  margin-top: 5px;
+  display: flex;
+  transition: opacity 0.3s linear;
+}
+
+div.task.done {
+  opacity: 0.3;
+  text-decoration: line-through;
+}
+
+div.task span {
+  position: relative;
+}
+
+div.task span:before{
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background-color: #ddd; 
+  position: absolute;
+  top: 10px;
+  transition: width .1.5s linear;
+}
+
+div.task.done span:before {
+  width: 100%;
+}
+
+div.task svg {
+  height: 20px;
+  margin-right: 6px;
+  fill: #61DAFB;
+}
