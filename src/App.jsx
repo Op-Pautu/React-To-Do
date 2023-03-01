@@ -5,17 +5,21 @@ import Task from "./components/Task";
 import TaskForm from "./components/TaskForm";
 
 function App() {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = JSON.parse(localStorage.getItem("tasks"));
+    return savedTasks || [];
+  });
 
   useEffect(() => {
-    if (tasks.length === 0) return;
+    const savedTasks = JSON.parse(localStorage.getItem("tasks"));
+    if (savedTasks && savedTasks.length > 0) {
+      setTasks(savedTasks);
+    }
+  }, []);
+
+  useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
-
-  useEffect(() => {
-    const tasks = JSON.parse(localStorage.getItem("tasks"));
-    setTasks(tasks);
-  }, []);
 
   function addTask(name) {
     setTasks((prev) => {
